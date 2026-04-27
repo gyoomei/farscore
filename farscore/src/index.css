@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #0a0a0f;
+  --color-surface: #12121a;
+  --color-surface-2: #1a1a28;
+  --color-border: #2a2a3d;
+  --color-text: #e8e8f0;
+  --color-text-dim: #8888a0;
+  --color-accent: #7c3aed;
+  --color-accent-glow: rgba(124, 58, 237, 0.4);
+  --font-display: 'Sora', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+
+.tier-legend { --tier-color: #fbbf24; --tier-glow: rgba(251, 191, 36, 0.3); }
+.tier-og { --tier-color: #f472b6; --tier-glow: rgba(244, 114, 182, 0.3); }
+.tier-builder { --tier-color: #7c3aed; --tier-glow: rgba(124, 58, 237, 0.3); }
+.tier-rising { --tier-color: #34d399; --tier-glow: rgba(52, 211, 153, 0.3); }
+.tier-explorer { --tier-color: #60a5fa; --tier-glow: rgba(96, 165, 250, 0.3); }
+.tier-newcomer { --tier-color: #9ca3af; --tier-glow: rgba(156, 163, 175, 0.3); }
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.2; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+@keyframes score-count {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2.5s ease-in-out infinite; }
+.animate-score-count { animation: score-count 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.animate-orbit { animation: orbit 20s linear infinite; }
+.animate-spin-slow { animation: spin-slow 30s linear infinite; }
